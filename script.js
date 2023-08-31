@@ -11,7 +11,7 @@
 */
 
 function getComputerChoice() {
-  let randomNum = Math.floor(Math.random() * 3); //selects 0, 1 or 2 at random
+  const randomNum = Math.floor(Math.random() * 3); //selects 0, 1 or 2 at random
   if (randomNum === 0) {
     return "rock";
   } else if (randomNum === 1) {
@@ -33,8 +33,8 @@ function getComputerChoice() {
 */
 
 function getPlayerChoice() {
-  let userInput = window.prompt("Enter your choice: rock, paper or scissors");
-  let userInputToLower = userInput.toLowerCase();
+  const userInput = window.prompt("Enter your choice: rock, paper or scissors");
+  const userInputToLower = userInput.toLowerCase();
   return userInputToLower;
 }
 
@@ -111,9 +111,9 @@ function validatePlayerSelection(playerSelection) {
 */
 
 function playOneRound() {
-  let playerSelection = getPlayerChoice();
-  let computerSelection = getComputerChoice();
-  let resultString = validatePlayerSelection(playerSelection)
+  const playerSelection = getPlayerChoice();
+  const computerSelection = getComputerChoice();
+  const resultString = validatePlayerSelection(playerSelection)
     ? determineWinner(playerSelection, computerSelection)
     : "no valid argument, you can chose rock, paper or scissors";
   console.log(resultString);
@@ -126,7 +126,7 @@ function playOneRound() {
 */
 
 function games() {
-  let numberOfGames = window.prompt("How many games do you want to play?");
+  const numberOfGames = window.prompt("How many games do you want to play?");
   for (let i = 0; i < numberOfGames; i++) {
     playOneRound();
   }
