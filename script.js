@@ -84,6 +84,20 @@ function detWin(playerSelection, computerSelection) {
 
 /*
 
+- write a function validatePlayerSelection(playerSelection)
+
+*/
+
+function validatePlayerSelection(playerSelection) {
+  return playerSelection === "rock" ||
+    playerSelection === "paper" ||
+    playerSelection === "scissors"
+    ? true
+    : false;
+}
+
+/*
+
 - write a function playOneRound() that executes a complete round of the game with the required output
 
     -initialize and assign the playerSelection by running getPlayerChoice()
@@ -98,17 +112,11 @@ function detWin(playerSelection, computerSelection) {
 
 function playOneRound() {
   let playerSelection = getPlayerChoice();
-  if (
-    playerSelection === "rock" ||
-    playerSelection === "paper" ||
-    playerSelection === "scissors"
-  ) {
-    let computerSelection = getComputerChoice();
-    let resultString = determineWinner(playerSelection, computerSelection);
-    console.log(resultString);
-  } else {
-    console.log("no valid argument, you can chose rock, paper or scissors");
-  }
+  let computerSelection = getComputerChoice();
+  let resultString = validatePlayerSelection(playerSelection)
+    ? determineWinner(playerSelection, computerSelection)
+    : "no valid argument, you can chose rock, paper or scissors";
+  console.log(resultString);
 }
 
 playOneRound();
