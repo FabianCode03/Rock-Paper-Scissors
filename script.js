@@ -45,7 +45,27 @@ function getPlayerChoice() {
     
     -implement switch that returns the resultString depending on the playerSelection and the computerSelection
 
+*/
 
+function determineWinner(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return `Draw! ${playerSelection} and ${computerSelection} are equal`;
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
+  } else {
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+  }
+}
+
+/*
 
 - write a function playOneRound() that executes a complete round of the game with the required output
 
