@@ -8,7 +8,20 @@
     -write a math expression that randomly selects 0, 1 or 2
     -map 0, 1 and 2 to rock, paper nad scissors and return it as string
 
+*/
 
+function getComputerChoice() {
+  let randomNum = Math.floor(Math.random() * 3); //selects 0, 1 or 2 at random
+  if (randomNum === 0) {
+    return "rock";
+  } else if (randomNum === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+}
+
+/*
 
 -write a function getPlayerChoice() that prompts the user to select rock, paper 
  or scissors and returns that value in a normalized/uniform way
