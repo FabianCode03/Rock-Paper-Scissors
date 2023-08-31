@@ -119,4 +119,17 @@ function playOneRound() {
   console.log(resultString);
 }
 
-playOneRound();
+/*
+
+- write a function games() that handles how many games are played
+
+*/
+
+function games() {
+  let numberOfGames = window.prompt("How many games do you want to play?");
+  for (let i = 0; i < numberOfGames; i++) {
+    playOneRound();
+  }
+}
+
+games();
