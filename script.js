@@ -95,3 +95,20 @@ function detWin(playerSelection, computerSelection) {
     -log the resultString to the console
 
 */
+
+function playOneRound() {
+  let playerSelection = getPlayerChoice();
+  if (
+    playerSelection === "rock" ||
+    playerSelection === "paper" ||
+    playerSelection === "scissors"
+  ) {
+    let computerSelection = getComputerChoice();
+    let resultString = determineWinner(playerSelection, computerSelection);
+    console.log(resultString);
+  } else {
+    console.log("no valid argument, you can chose rock, paper or scissors");
+  }
+}
+
+playOneRound();
