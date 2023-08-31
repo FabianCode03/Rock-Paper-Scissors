@@ -30,7 +30,15 @@ function getComputerChoice() {
     -convert to lower case
     -return the normalized (lower case) choice
 
+*/
 
+function getPlayerChoice() {
+  let userInput = window.prompt("Enter your choice: rock, paper or scissors");
+  let userInputToLower = userInput.toLowerCase();
+  return userInputToLower;
+}
+
+/*
 
 -write a function determineWinner(playerSelection, computerSelection) that determines the winner of the 
  round and returns a string with the winner and the interaction that decided the outcome in the style of "You Lose! Paper beats Rock"
