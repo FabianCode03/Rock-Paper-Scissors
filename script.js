@@ -65,6 +65,23 @@ function determineWinner(playerSelection, computerSelection) {
   }
 }
 
+//alternative solution to determineWinner(playerSelection, computerSelection) using ternary operator
+function detWin(playerSelection, computerSelection) {
+  return playerSelection === computerSelection
+    ? `Draw! ${playerSelection} and ${computerSelection} are equal`
+    : playerSelection === "rock" && computerSelection === "paper"
+    ? `You lose! ${computerSelection} beats ${playerSelection}`
+    : playerSelection === "rock" && computerSelection === "scissors"
+    ? `You win! ${playerSelection} beats ${computerSelection}`
+    : playerSelection === "paper" && computerSelection === "rock"
+    ? `You win! ${playerSelection} beats ${computerSelection}`
+    : playerSelection === "paper" && computerSelection === "scissors"
+    ? `You lose! ${computerSelection} beats ${playerSelection}`
+    : playerSelection === "scissors" && computerSelection === "rock"
+    ? `You lose! ${computerSelection} beats ${playerSelection}`
+    : `You win! ${playerSelection} beats ${computerSelection}`;
+}
+
 /*
 
 - write a function playOneRound() that executes a complete round of the game with the required output
