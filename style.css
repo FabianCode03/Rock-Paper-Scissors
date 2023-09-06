@@ -26,7 +26,7 @@ footer {
 }
 
 main {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   flex: auto;
   flex-basis: 100%;
   padding: 5%;
@@ -36,7 +36,7 @@ main {
 }
 
 main > * {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   flex: auto;
   flex-basis: 100%;
 }
@@ -51,4 +51,16 @@ main > * {
 
 .buttons > * {
   flex-basis: 100%;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+}
+
+.result-string {
+  /* border: 1px solid coral; */
+  font-size: 4rem;
 }
