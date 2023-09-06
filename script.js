@@ -66,12 +66,3 @@ function playOneRound() {
     : "no valid argument, you can chose rock, paper or scissors";
   console.log(resultString);
 }
-
-function games() {
-  const numberOfGames = window.prompt("How many games do you want to play?");
-  for (let i = 0; i < numberOfGames; i++) {
-    playOneRound();
-  }
-}
-
-games();
