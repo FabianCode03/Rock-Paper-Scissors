@@ -9,12 +9,6 @@ function getComputerChoice() {
   }
 }
 
-function getPlayerChoice() {
-  const userInput = window.prompt("Enter your choice: rock, paper or scissors");
-  const userInputToLower = userInput.toLowerCase();
-  return userInputToLower;
-}
-
 function determineWinner(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return `Draw! ${playerSelection} and ${computerSelection} are equal`;
@@ -50,26 +44,15 @@ function detWin(playerSelection, computerSelection) {
     : `You win! ${playerSelection} beats ${computerSelection}`;
 }
 
-function validatePlayerSelection(playerSelection) {
-  return playerSelection === "rock" ||
-    playerSelection === "paper" ||
-    playerSelection === "scissors"
-    ? true
-    : false;
-}
-
-function playOneRound() {
-  const playerSelection = getPlayerChoice();
+function playOneRound(playerSelection) {
   const computerSelection = getComputerChoice();
-  const resultString = validatePlayerSelection(playerSelection)
-    ? determineWinner(playerSelection, computerSelection)
-    : "no valid argument, you can chose rock, paper or scissors";
+  const resultString = determineWinner(playerSelection, computerSelection);
   console.log(resultString);
 }
 
 const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) =>
   button.addEventListener("click", (e) => {
-    console.log(e.target.textContent.toLowerCase());
+    playOneRound(e.target.textContent.toLowerCase());
   })
 );
