@@ -66,3 +66,10 @@ function playOneRound() {
     : "no valid argument, you can chose rock, paper or scissors";
   console.log(resultString);
 }
+
+const buttons = Array.from(document.querySelectorAll("button"));
+buttons.forEach((button) =>
+  button.addEventListener("click", (e) => {
+    console.log(e.target.textContent.toLowerCase());
+  })
+);
