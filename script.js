@@ -47,7 +47,8 @@ function detWin(playerSelection, computerSelection) {
 function playOneRound(playerSelection) {
   const computerSelection = getComputerChoice();
   const resultString = determineWinner(playerSelection, computerSelection);
-  console.log(resultString);
+  let outputDiv = document.querySelector(".result-string");
+  outputDiv.textContent = resultString;
 }
 
 const buttons = Array.from(document.querySelectorAll("button"));
