@@ -11,19 +11,19 @@ function getComputerChoice() {
 
 function determineWinner(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return `Draw! ${playerSelection} and ${computerSelection} are equal`;
+    return `\u{2696}\uFE0F Draw! ${playerSelection} and ${computerSelection} are equal`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    return `\u{274c} You lose! ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+    return `\u{2705} You win! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+    return `\u{2705} You win! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    return `\u{274c} You lose! ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    return `\u{274c} You lose! ${computerSelection} beats ${playerSelection}`;
   } else {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+    return `\u{2705} You win! ${playerSelection} beats ${computerSelection}`;
   }
 }
 
@@ -47,13 +47,36 @@ function detWin(playerSelection, computerSelection) {
 function playOneRound(playerSelection) {
   const computerSelection = getComputerChoice();
   const resultString = determineWinner(playerSelection, computerSelection);
-  let outputDiv = document.querySelector(".result-string");
+  return resultString;
+}
+
+function updateUI(resultString) {
+  const playerScoreElement = document.querySelector(".result-counter-player");
+  const computerScoreElement = document.querySelector(
+    ".result-counter-computer"
+  );
+  const outputDiv = document.querySelector(".result-string");
+
+  let playerScore = parseInt(playerScoreElement.textContent.charAt(8));
+  let computerScore = parseInt(computerScoreElement.textContent.charAt(10));
+
+  if (resultString.substring(0, 1) === "\u{2696}") {
+    console.log("draw");
+  } else if (resultString.substring(0, 1) === "\u{274c}") {
+    console.log("lose");
+    computerScoreElement.textContent = `computer: ${++computerScore}`;
+  } else {
+    console.log("win");
+    playerScoreElement.textContent = `player: ${++playerScore}`;
+  }
+
   outputDiv.textContent = resultString;
 }
 
 const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) =>
   button.addEventListener("click", (e) => {
-    playOneRound(e.target.textContent.toLowerCase());
+    const resultString = playOneRound(e.target.textContent.toLowerCase());
+    updateUI(resultString);
   })
 );
