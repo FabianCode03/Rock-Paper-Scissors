@@ -55,6 +55,9 @@ function updateUI(resultString) {
   const computerScoreElement = document.querySelector(
     ".result-counter-computer"
   );
+  const dialog = document.querySelector(".dialog");
+
+  const endOfGameHeading = document.querySelector(".end-of-game-heading");
   const outputDiv = document.querySelector(".result-string");
 
   let playerScore = parseInt(playerScoreElement.textContent.charAt(8));
@@ -71,7 +74,22 @@ function updateUI(resultString) {
   }
 
   outputDiv.textContent = resultString;
+
+  console.log(isEndOfGame(playerScore, computerScore));
+
+  if (isEndOfGame(playerScore, computerScore)) {
+    playerScore === 5
+      ? (endOfGameHeading.textContent =
+          "Gratulation, you defeated the computer")
+      : (endOfGameHeading.textContent = "Sorry, the computer defeated you");
+    dialog.showModal();
+  } else {
+    return;
+  }
 }
+
+const isEndOfGame = (playerScore, computerScore) =>
+  playerScore === 5 || computerScore === 5 ? true : false;
 
 const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) =>
